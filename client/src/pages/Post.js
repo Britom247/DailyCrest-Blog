@@ -37,9 +37,13 @@ const Post = () => {
   if (loading) return <div className="spinner"></div>;
   if (!post) return <div>Post not found</div>;
 
+  const siteUrl = process.env.REACT_APP_SITE_URL || 'http://localhost:3000';
   const shareUrl = typeof window !== 'undefined'
     ? window.location.href
-    : `${process.env.REACT_APP_SITE_URL || 'http://localhost:3000'}/post/${post.slug}`;
+    : `${siteUrl}/post/${post.slug}`;
+  const absoluteImage = post.featuredImage
+    ? (post.featuredImage.startsWith('http') ? post.featuredImage : `${siteUrl}${post.featuredImage}`)
+    : '';
   const displayAuthorName = post.authorName || post.author?.name || 'Admin';
   const shareTitle = encodeURIComponent(post.title);
   const shareLink = encodeURIComponent(shareUrl);
@@ -104,7 +108,15 @@ const Post = () => {
         <meta name="description" content={post.excerpt} />
         <meta property="og:title" content={post.title} />
         <meta property="og:description" content={post.excerpt} />
-        {post.featuredImage && <meta property="og:image" content={post.featuredImage} />}
+        <meta property="og:type" content="article" />
+        <meta property="og:url" content={shareUrl} />
+        <meta property="og:site_name" content="DailyCrest" />
+        {absoluteImage && <meta property="og:image" content={absoluteImage} />}
+        {absoluteImage && <meta property="og:image:alt" content={post.title} />}
+        <meta name="twitter:card" content={absoluteImage ? 'summary_large_image' : 'summary'} />
+        <meta name="twitter:title" content={post.title} />
+        <meta name="twitter:description" content={post.excerpt} />
+        {absoluteImage && <meta name="twitter:image" content={absoluteImage} />}
       </Helmet>
 
       <div className="container">
