@@ -25,6 +25,11 @@ app.use('/api/comments', require('./routes/comments'));
 app.use('/api/contact', require('./routes/contact'));
 app.use('/api/write-for-us', require('./routes/WriteForUs'));
 
+// Health check
+app.get('/', (req, res) => {
+  res.send('DailyCrest API is running...');
+});
+
 // Error handling middleware
 app.use((err, req, res, next) => {
   console.error('Server error:', err);
