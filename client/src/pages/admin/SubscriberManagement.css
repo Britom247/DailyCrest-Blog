@@ -1,0 +1,165 @@
+/* Subscriber Management Styles */
+.subscriber-management {
+  background-color: #f8f9fa;
+  min-height: 100vh;
+}
+
+.management-navbar {
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  background-color: white !important;
+  padding: 0.75rem 1rem;
+}
+
+.brand-text {
+  color: #0a2472;
+  font-weight: 700;
+  font-size: 1.3rem;
+  position: relative;
+  display: inline-block;
+}
+
+.brand-text::after {
+  content: "▲";
+  color: #f95738;
+  font-size: 0.8rem;
+  position: absolute;
+  top: -2px;
+  right: -10px;
+  transform: rotate(45deg);
+}
+
+/* Stat Cards */
+.stat-card {
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  border-radius: 12px !important;
+  overflow: hidden;
+  border: none !important;
+}
+
+.stat-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15) !important;
+}
+
+.stat-icon-wrapper {
+  width: 56px;
+  height: 56px;
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Table Styles */
+.table th {
+  border-top: none;
+  font-weight: 600;
+  color: #495057;
+  text-transform: uppercase;
+  font-size: 0.8rem;
+  letter-spacing: 0.5px;
+  background-color: #f8f9fa;
+}
+
+.table td {
+  vertical-align: middle;
+  color: #212529;
+}
+
+/* Status Badges */
+.status-badge {
+  font-weight: 500;
+  padding: 0.5rem 1rem;
+  border-radius: 20px;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.badge.bg-success {
+  background-color: #28a745 !important;
+}
+
+.badge.bg-secondary {
+  background-color: #6c757d !important;
+}
+
+/* Action Buttons */
+.action-buttons {
+  display: flex;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+}
+
+.action-buttons .btn {
+  padding: 0.4rem 0.8rem;
+  border-radius: 6px;
+  transition: all 0.2s ease;
+}
+
+.action-buttons .btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Email link */
+.table td a {
+  color: #0a2472;
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+.table td a:hover {
+  color: #f95738;
+  text-decoration: underline;
+}
+
+/* Pagination */
+.pagination {
+  margin-bottom: 0;
+}
+
+.pagination .page-link {
+  color: #0a2472;
+  border: none;
+  margin: 0 2px;
+  border-radius: 6px;
+}
+
+.pagination .page-link:hover {
+  background-color: #f95738;
+  color: white;
+}
+
+.pagination .active .page-link {
+  background-color: #f95738;
+  border-color: #f95738;
+  color: white;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .action-buttons {
+    flex-direction: column;
+  }
+
+  .table td {
+    min-width: 120px;
+  }
+}
+
+@media (max-width: 576px) {
+  .stat-card h3 {
+    font-size: 1.5rem;
+  }
+
+  .stat-icon-wrapper {
+    width: 40px;
+    height: 40px;
+  }
+
+  .stat-icon-wrapper svg {
+    width: 20px;
+    height: 20px;
+  }
+}
